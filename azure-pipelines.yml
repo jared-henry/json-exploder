@@ -13,7 +13,7 @@ steps:
   displayName: API Build
   workingDirectory: api
 
-- script: sudo npm link ..\api
+- script: sudo npm link ../api
   displayName: CLI Link to API
   workingDirectory: cli
 
