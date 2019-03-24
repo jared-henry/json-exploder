@@ -13,12 +13,9 @@ steps:
   displayName: API Build
   workingDirectory: api
 
-- task: Npm@1
-  inputs:
-    displayName: CLI Link to API
-    workingDirectory: cli
-    command: custom
-    customCommand: link '..\api'
+- script: sudo npm link ..\api
+  displayName: CLI Link to API
+  workingDirectory: cli
 
 - script: npm install
   displayName: CLI Install
