@@ -17,8 +17,8 @@ steps:
   inputs:
     displayName: CLI Link to API
     workingDirectory: cli
-    command: 'custom'
-    customCommand: link ../api
+    command: custom
+    customCommand: 'link ../api'
 
 - script: npm install
   displayName: CLI Install
