@@ -4,7 +4,7 @@ pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-  
+
 - script: npm install
   displayName: API Install
   workingDirectory: api
@@ -13,9 +13,11 @@ steps:
   displayName: API Build
   workingDirectory: api
 
-- script: npm link ../api
+- task: Npm@1
   displayName: CLI Link to API
   workingDirectory: cli
+  command: 'custom',
+  customCommand: link ../api
 
 - script: npm install
   displayName: CLI Install
