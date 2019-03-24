@@ -1,0 +1,21 @@
+{
+  "name": "@json-exploder/api",
+  "version": "1.0.0-beta",
+  "description": "API for the JSON Exploder CLI tool",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json --watch"
+  },
+  "keywords": [
+    "json",
+    "exploder"
+  ],
+  "author": "Jared Henry",
+  "license": "SEE LICENSE IN LICENSE",
+  "devDependencies": {
+    "typescript": "^3.3.4000"
+  }
+}
