@@ -4,6 +4,6 @@ pool:
   vmImage: Ubuntu-16.04
 
 steps:
-workingDirectory: api
-- script: npm install
-- script: npm run-script build  
+  workingDirectory: api
+  - script: npm install
+  - script: npm run-script build  
