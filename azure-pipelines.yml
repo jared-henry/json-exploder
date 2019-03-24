@@ -5,6 +5,9 @@ pool:
 
 steps:
 
+- script: sudo npm link
+  workingDirectory: api
+
 - script: npm install
   displayName: API Install
   workingDirectory: api
@@ -13,11 +16,10 @@ steps:
   displayName: API Build
   workingDirectory: api
 
-- script: sudo npm link ../api
-  displayName: CLI Link to API
+- script: npm link @json-exploder/api
   workingDirectory: cli
 
-- script: sudo npm install
+- script: npm install
   displayName: CLI Install
   workingDirectory: cli
 
