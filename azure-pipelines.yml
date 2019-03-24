@@ -5,10 +5,6 @@ pool:
 
 steps:
   
-- script: npm link
-  displayName: API Link
-  workingDirectory: api
-
 - script: npm install
   displayName: API Install
   workingDirectory: api
@@ -17,7 +13,7 @@ steps:
   displayName: API Build
   workingDirectory: api
 
-- script: npm link @json-exploder/api
+- script: npm link ../api
   displayName: CLI Link to API
   workingDirectory: cli
 
