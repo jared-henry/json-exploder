@@ -1,10 +1,30 @@
 name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+
 pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
+  
+- script: npm link
+  displayName: API Link
+  workingDirectory: api
+
 - script: npm install
+  displayName: API Install
   workingDirectory: api
 
 - script: npm run-script build
+  displayName: API Build
   workingDirectory: api
+
+- script: npm link @json-exploder/api
+  displayName: CLI Link to API
+  workingDirectory: cli
+
+- script: npm install
+  displayName: CLI Install
+  workingDirectory: cli
+
+- script: npm run-script build
+  displayName: CLI Build
+  workingDirectory: cli
