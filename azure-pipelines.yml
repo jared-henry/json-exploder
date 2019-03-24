@@ -1,36 +1,35 @@
-name: $(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
+name: $(Date:yyyyMMdd)$(Rev:.r)
 
 pool:
   vmImage: Ubuntu-16.04
 
-- steps:  
+steps:  
+- task: Npm@1
+  workingDirectory: api
+  command: custom
+  customCommand: link
 
-    - task: Npm@1
-      workingDirectory: api
-      command: custom
-      customCommand: link
+- task: Npm@1
+  workingDirectory: api
+  command: custom
+  customCommand: install
 
-    - task: Npm@1
-      workingDirectory: api
-      command: custom
-      customCommand: install
+- task: Npm@1
+  workingDirectory: api
+  command: custom
+  customCommand: run-script build
 
-    - task: Npm@1
-      workingDirectory: api
-      command: custom
-      customCommand: run-script build
+- task: Npm@1
+  workingDirectory: cli
+  command: custom
+  customCommand: link @json-exploder/api
 
-    - task: Npm@1
-      workingDirectory: cli
-      command: custom
-      customCommand: link @json-exploder/api
+- task: Npm@1
+  workingDirectory: cli
+  command: custom
+  customCommand: install
 
-    - task: Npm@1
-      workingDirectory: cli
-      command: custom
-      customCommand: install
-
-    - task: Npm@1
-      workingDirectory: cli
-      command: custom
-      customCommand: run-script build
+- task: Npm@1
+  workingDirectory: cli
+  command: custom
+  customCommand: run-script build
