@@ -6,44 +6,32 @@ pool:
 steps:
 
 - task: NodeTool@0
-  inputs:
-    versionSpec: 10.x
   displayName: Install Node.js
-
-- script: npm install
-  displayName: API Install
-  workingDirectory: api
-
-- script: npm run-script build
-  displayName: API Build
-  workingDirectory: api
-
-- task: PublishPipelineArtifact@0
-  displayName: API Artifact
   inputs:
-    artifactName: api
-    targetPath: api
+    versionSpec: 10.x 
 
-- script: npm link ../api
-  displayName: CLI Link API
-  workingDirectory: cli
+- script: |
+    npm install
+    npm run-script build
+    npm pack
+  displayName: API Build and Pack
 
-- script: npm install
-  displayName: CLI Install
-  workingDirectory: cli
+- script: |
+    npm link ../api
+    npm install
+    npm run-script build
+    npm pack 
+  displayName: CLI Build and Pack
 
-- task: PublishPipelineArtifact@0
-  displayName: Debug Artifact
+- task: CopyFiles@2
+  displayName: Copy npm packages to staging directory
   inputs:
-    artifactName: debug
-    targetPath: $(Build.Repository.LocalPath)
-
-- script: npm run-script build
-  displayName: CLI Build
-  workingDirectory: cli
-
+    contents: '*/*.tgz',
+    targetFolder: $(Build.ArtifactStagingDirectory)/packages
+    flattenFolders: true
+  
 - task: PublishPipelineArtifact@0
-  displayName: CLI Artifact
+  displayName: Publish Artifacts
   inputs:
-    artifactName: cli
-    targetPath: cli
+    artifactName: packages
+    targetPath: $(Build.ArtifactStagingDirectory)/packages
