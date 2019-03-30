@@ -5,6 +5,9 @@
   "author": "Jared Henry",
   "license": "SEE LICENSE IN LICENSE",
   "main": "dist/index.js",
+  "bin": {
+    "json-exploder": "dist/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/jared-henry/json-exploder.git"
