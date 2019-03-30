@@ -5,6 +5,7 @@
   "author": "Jared Henry",
   "license": "SEE LICENSE IN LICENSE",
   "main": "dist/index.js",
+  "private": false,
   "bin": {
     "json-exploder": "dist/index.js"
   },
