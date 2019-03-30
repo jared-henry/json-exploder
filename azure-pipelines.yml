@@ -13,7 +13,6 @@ steps:
 - script: |
     npm install
     npm run-script build
-    npm pack
   displayName: API Build and Pack
   workingDirectory: api
 
@@ -21,16 +20,20 @@ steps:
     npm link ../api
     npm install
     npm run-script build
-    npm pack 
   displayName: CLI Build and Pack
-  workingDirectory: cli
+  workingDirectory: cli 
 
 - task: CopyFiles@2
-  displayName: Copy npm packages to staging directory
+  displayName: Copy artifacts to staging
   inputs:
-    contents: '*/*.tgz'
+    contents: |
+      'api/src/**/*'
+      'api/dist/**/*'
+      'api/package.json'
+      'cli/src/**/*'
+      'cli/src/**/*'
+      'cli/package.json'
     targetFolder: $(Build.ArtifactStagingDirectory)/packages
-    flattenFolders: true
   
 - task: PublishPipelineArtifact@0
   displayName: Publish Artifacts
