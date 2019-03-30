@@ -5,7 +5,8 @@
         "baseUrl": ".",
         "paths": {
             "@json-exploder/api": [
-                "node_modules/@json-exploder/api/dist"
+                "../api/dist",
+                "node_modules/@json-exploder/api/dist",
             ]
         }
     },
