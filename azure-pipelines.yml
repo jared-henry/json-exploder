@@ -30,6 +30,13 @@ steps:
   displayName: CLI Install
   workingDirectory: cli
 
+
+- task: PublishPipelineArtifact@0
+  displayName: CLI Artifact
+  inputs:
+    artifactName: cli-before-build
+    targetPath: cli
+
 - script: npm run-script build
   displayName: CLI Build
   workingDirectory: cli
