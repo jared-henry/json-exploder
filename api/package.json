@@ -1,6 +1,6 @@
 {
   "name": "@json-exploder/api",
-  "version": "1.0.0-beta",
+  "version": "1.0.1-beta",
   "description": "API for the JSON Exploder CLI tool",
   "author": "Jared Henry",
   "license": "SEE LICENSE IN LICENSE",

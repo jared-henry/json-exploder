@@ -1,6 +1,6 @@
 {
   "name": "@json-exploder/cli",
-  "version": "1.0.0-beta",
+  "version": "1.0.1-beta",
   "description": "JSON Exploder CLI tool",
   "author": "Jared Henry",
   "license": "SEE LICENSE IN LICENSE",
@@ -24,7 +24,7 @@
     "watch": "tsc -p tsconfig.json --watch"
   },
   "dependencies": {
-    "@json-exploder/api": "1.0.0-beta"
+    "@json-exploder/api": "1.0.1-beta"
   },
   "devDependencies": {
     "del-cli": "^1.1.0",
