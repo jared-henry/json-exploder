@@ -27,16 +27,13 @@ steps:
   displayName: Copy artifacts to staging
   inputs:
     contents: |
-      'api/src/**/*'
-      'api/dist/**/*'
-      'api/package.json'
-      'cli/src/**/*'
-      'cli/src/**/*'
-      'cli/package.json'
-    targetFolder: $(Build.ArtifactStagingDirectory)/packages
+      '*/src/**'
+      '*/dist/**'
+      '*/package.json'
+    targetFolder: $(Build.ArtifactStagingDirectory)
   
 - task: PublishPipelineArtifact@0
   displayName: Publish Artifacts
   inputs:
     artifactName: packages
-    targetPath: $(Build.ArtifactStagingDirectory)/packages
+    targetPath: $(Build.ArtifactStagingDirectory)
