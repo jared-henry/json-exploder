@@ -9,11 +9,11 @@ steps:
   displayName: API Link
   workingDirectory: api
 
-- script: npm install
+- script: sudo npm install
   displayName: API Install
   workingDirectory: api
 
-- script: npm run-script build
+- script: sudo npm run-script build
   displayName: API Build
   workingDirectory: api
 
@@ -23,11 +23,11 @@ steps:
     artifactName: api
     targetPath: api
 
-- script: npm link @json-exploder/api
+- script: sudo npm link @json-exploder/api
   displayName: CLI Link API
   workingDirectory: cli
 
-- script: npm install
+- script: sudo npm install
   displayName: CLI Install
   workingDirectory: cli
 
@@ -38,7 +38,7 @@ steps:
     artifactName: cli-before-build
     targetPath: cli
 
-- script: npm run-script build
+- script: sudo npm run-script build
   displayName: CLI Build
   workingDirectory: cli
 
