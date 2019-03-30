@@ -10,15 +10,11 @@ steps:
     versionSpec: 10.x
   displayName: Install Node.js
 
-- script: sudo npm link
-  displayName: API Link
-  workingDirectory: api
-
-- script: sudo npm install
+- script: npm install
   displayName: API Install
   workingDirectory: api
 
-- script: sudo npm run-script build
+- script: npm run-script build
   displayName: API Build
   workingDirectory: api
 
@@ -28,11 +24,11 @@ steps:
     artifactName: api
     targetPath: api
 
-- script: sudo npm link @json-exploder/api
+- script: npm link ../api
   displayName: CLI Link API
   workingDirectory: cli
 
-- script: sudo npm install
+- script: npm install
   displayName: CLI Install
   workingDirectory: cli
 
@@ -42,7 +38,7 @@ steps:
     artifactName: debug
     targetPath: $(Build.Repository.LocalPath)
 
-- script: sudo npm run-script build
+- script: npm run-script build
   displayName: CLI Build
   workingDirectory: cli
 

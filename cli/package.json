@@ -19,7 +19,7 @@
     "build": "tsc -p tsconfig.json",
     "watch": "tsc -p tsconfig.json --watch"
   },
-  "peerDependencies": {
+  "dependencies": {
     "@json-exploder/api": "1.0.0-beta"
   },
   "devDependencies": {
