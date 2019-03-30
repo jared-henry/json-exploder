@@ -1,19 +1,42 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-trigger:
-- master
+name: $(TeamProject)_$(BuildDefinitionName)_$(SourceBranchName)_$(Date:yyyyMMdd)$(Rev:.r)
 
 pool:
   vmImage: 'Ubuntu-16.04'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+
+- task: NodeTool@0
+  displayName: Install Node.js
+  inputs:
+    versionSpec: 10.x 
 
 - script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    npm install
+    npm run-script build
+  displayName: API Build and Pack
+  workingDirectory: api
+
+- script: |
+    npm link ../api
+    npm install
+    npm run-script build
+  displayName: CLI Build and Pack
+  workingDirectory: cli 
+
+- task: CopyFiles@2
+  displayName: Copy artifacts to staging  
+  inputs:
+    contents: |
+      api/src/**
+      api/dist/**
+      api/package.json
+      cli/src/**
+      cli/dist/**
+      cli/package.json
+    targetFolder: $(Build.ArtifactStagingDirectory)
+  
+- task: PublishPipelineArtifact@0
+  displayName: Publish Artifacts
+  inputs:
+    artifactName: packages
+    targetPath: $(Build.ArtifactStagingDirectory)

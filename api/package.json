@@ -1,0 +1,32 @@
+{
+  "name": "@json-exploder/api",
+  "version": "1.0.1-beta",
+  "description": "API for the JSON Exploder CLI tool",
+  "author": "Jared Henry",
+  "license": "SEE LICENSE IN LICENSE",
+  "private": false,
+  "main": "dist/Index.js",
+  "types": "dist/Index.d.ts",
+  "keywords": [
+    "json",
+    "exploder"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jared-henry/json-exploder.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "del-cli dist && tsc -p tsconfig.json",
+    "watch": "tsc -p tsconfig.json --watch"
+  },
+  "files": [
+    "dist/**/*.*",
+    "src/**/*.*"
+  ],
+  "devDependencies": {
+    "del-cli": "^1.1.0",
+    "tslib": "^1.9.3",
+    "typescript": "^3.3.4000"
+  }
+}
