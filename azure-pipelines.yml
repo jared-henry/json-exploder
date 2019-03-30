@@ -27,7 +27,9 @@ steps:
   displayName: Copy artifacts to staging  
   inputs:
     sourceFolder: $(Build.SourcesDirectory)
-    contents: 'api/**/* cli/**/*'
+    contents: |
+      api/**/*
+      cli/**/*
     targetFolder: $(Build.ArtifactStagingDirectory)
   
 - task: PublishPipelineArtifact@0
