@@ -28,8 +28,7 @@ steps:
   inputs:
     sourceFolder: $(Build.SourcesDirectory)
     contents: |
-      api/**/*
-      cli/**/*
+      +(api|cli)/+(src|dist)
     targetFolder: $(Build.ArtifactStagingDirectory)
   
 - task: PublishPipelineArtifact@0
