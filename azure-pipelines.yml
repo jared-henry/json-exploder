@@ -16,7 +16,14 @@ steps:
   displayName: API Build
   workingDirectory: api
 
+- task: PublishPipelineArtifact@0
+  displayName: API Artifact
+  inputs:
+    artifactName: api
+    targetPath: api
+
 - script: npm link @json-exploder/api
+  displayName: CLI Link API
   workingDirectory: cli
 
 - script: npm install
@@ -26,3 +33,9 @@ steps:
 - script: npm run-script build
   displayName: CLI Build
   workingDirectory: cli
+
+- task: PublishPipelineArtifact@0
+  displayName: CLI Artifact
+  inputs:
+    artifactName: cli
+    targetPath: cli
