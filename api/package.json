@@ -13,6 +13,10 @@
     "json",
     "exploder"
   ],
+  "files": [
+    "dist/**/*.*",
+    "src/**/*.*"
+  ],
   "author": "Jared Henry",
   "license": "SEE LICENSE IN LICENSE",
   "devDependencies": {
