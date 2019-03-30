@@ -1,11 +1,18 @@
 {
     "compilerOptions": {
         "module": "commonjs",
-        "esModuleInterop": true,
-        "target": "es6",
-        "noImplicitAny": true,
+        "target": "es5",
         "moduleResolution": "node",
-        "sourceMap": true,
-        "declaration": true
+        "types": [],
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "noFallthroughCasesInSwitch": true,
+        "skipLibCheck": true,
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "inlineSources": true,
+        "inlineSourceMap": true,
+        "importHelpers": true
     }
 }
