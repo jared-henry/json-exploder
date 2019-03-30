@@ -24,9 +24,9 @@ steps:
   workingDirectory: cli 
 
 - task: CopyFiles@2
-  displayName: Copy artifacts to staging
-  sourceFolder: $(Build.SourcesDirectory)
+  displayName: Copy artifacts to staging  
   inputs:
+    sourceFolder: $(Build.SourcesDirectory)
     contents: |
       'api/**/*'
       'cli/**/*'
