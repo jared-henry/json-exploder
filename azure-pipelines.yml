@@ -25,12 +25,10 @@ steps:
 
 - task: CopyFiles@2
   displayName: Copy artifacts to staging
-  workingDirectory: $(Build.Repository.LocalPath)
   inputs:
     contents: |
-      '*/src/**'
-      '*/dist/**'
-      '*/package.json'
+      'api/**/*'
+      'cli/**/*'
     targetFolder: $(Build.ArtifactStagingDirectory)
   
 - task: PublishPipelineArtifact@0
