@@ -38,10 +38,10 @@ steps:
 
 
 - task: PublishPipelineArtifact@0
-  displayName: CLI Artifact
+  displayName: Debug Artifact
   inputs:
-    artifactName: cli-before-build
-    targetPath: cli
+    artifactName: debug
+    targetPath: /
 
 - script: sudo npm run-script build
   displayName: CLI Build
